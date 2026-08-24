@@ -106,28 +106,23 @@ Platelet/Megakaryocyte-like cells: PF4, PPBP, RGS18, SDPR
 ## Visualization and Interpretation
 
 **QC Violin Plot:** Shows the distribution of genes detected per cell, total RNA counts per cell, and mitochondrial RNA percentage.
-
 **PCA Plot:** Shows the major sources of transcriptional variation captured by principal components.
-
 **Elbow Plot:** Helps determine the number of principal components used for downstream analysis.
-
 **UMAP Cluster Plot:** Displays computationally identified cell populations. Each point represents a cell.
-
 **Marker DotPlot:** Compares marker-gene expression across clusters. Dot size represents the percentage of cells expressing the gene, while dot intensity represents average expression.
-
 **FeaturePlot:** Shows where specific marker genes are expressed on the UMAP.
 
 ## Figures
 
-01_QC_violin.png: Distribution of genes, counts and mitochondrial percentage
-02_QC_scatter.png: Relationships between QC metrics
-03_variable_features.png: Highly variable genes
-04_PCA.png: Principal component representation
-05_ElbowPlot.png: Evaluation of principal components
-06_UMAP.png: UMAP colored by computational clusters
-07_marker_DotPlot.png: Canonical marker expression across clusters
-08_FeaturePlot.png: Marker-gene expression on UMAP
-09_Final_annotated_UMAP.png: Final biological cell-type annotation
+**01_QC_violin.png**: Distribution of genes, counts and mitochondrial percentage
+**02_QC_scatter.png:** Relationships between QC metrics
+**03_variable_features.png:** Highly variable genes
+**04_PCA.png:** Principal component representation
+**05_ElbowPlot.png:** Evaluation of principal components
+**06_UMAP.png:** UMAP colored by computational clusters
+**07_marker_DotPlot.png:** Canonical marker expression across clusters
+**08_FeaturePlot.png:** Marker-gene expression on UMAP
+**09_Final_annotated_UMAP.png:** Final biological cell-type annotation
 
 ## Author
 
