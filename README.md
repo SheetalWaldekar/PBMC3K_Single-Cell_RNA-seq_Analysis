@@ -117,6 +117,17 @@ Platelet/Megakaryocyte-like cells: PF4, PPBP, RGS18, SDPR
 
 **FeaturePlot:** Shows where specific marker genes are expressed on the UMAP.
 
+## Figures
+
+01_QC_violin.png: Distribution of genes, counts and mitochondrial percentage
+02_QC_scatter.png: Relationships between QC metrics
+03_variable_features.png: Highly variable genes
+04_PCA.png: Principal component representation
+05_ElbowPlot.png: Evaluation of principal components
+06_UMAP.png: UMAP colored by computational clusters
+07_marker_DotPlot.png: Canonical marker expression across clusters
+08_FeaturePlot.png: Marker-gene expression on UMAP
+09_Final_annotated_UMAP.png: Final biological cell-type annotation
 
 ## Author
 
