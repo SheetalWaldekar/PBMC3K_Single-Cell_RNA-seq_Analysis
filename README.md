@@ -77,16 +77,16 @@ Marker-gene analysis
 - The clusters contained 684, 481, 476, 344, 291, 162, 155, 32, and 13 cells, respectively.
 - Cell-type annotation identified nine distinct populations: naive CD4 T cells, memory CD4 T cells, CD8 T cells, CD14+ classical monocytes, FCGR3A+ monocytes, B cells, NK cells, dendritic cells, and platelets. These populations represent major lymphoid, myeloid, antigen-presenting, and platelet lineages present in peripheral blood.
 
-- Cluster  	Cell type:
-- Cluster 0           Naive CD4 T
-- Cluster 1	CD14+ Monocytes
-- Cluster 2	Memory CD4 T
-- Cluster 3	B cells
-- Cluster 4	CD8 T
-- Cluster 5	FCGR3A+ Monocytes
-- Cluster 6	NK cells
-- Cluster 7	Dendritic cells
-- Cluster 8	Platelets
+- Cluster   →	Cell type:
+- Cluster 0 →         Naive CD4 T
+- Cluster 1 →	CD14+ Monocytes
+- Cluster 2 →         Memory CD4 T
+- Cluster 3 →	B cells
+- Cluster 4 →	CD8 T
+- Cluster 5 →	FCGR3A+ Monocytes
+- Cluster 6 →	NK cells
+- Cluster 7 →	Dendritic cells
+- Cluster 8 →	Platelets
 
 ## Conclusion
 
