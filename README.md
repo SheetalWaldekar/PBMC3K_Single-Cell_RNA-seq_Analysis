@@ -1,20 +1,20 @@
-##PBMC3K Single-Cell RNA-seq Analysis with R and Seurat
+## PBMC3K Single-Cell RNA-seq Analysis with R and Seurat
 
-##Project Overview
+## Project Overview
 
 This project performs an end-to-end single-cell RNA sequencing (scRNA-seq) analysis of the publicly available PBMC3K dataset from 10x Genomics.
 
 The dataset contains approximately 2,700 human peripheral blood mononuclear cells (PBMCs) and was generated using 10x Genomics technology.
 
-##Objective
+## Objective
 
 The goal is to process the expression matrix, identify transcriptionally distinct cell populations, visualize the cells, identify cluster-specific marker genes, and annotate the clusters using known immune-cell markers.
 
-##Biological Question
+## Biological Question
 
 What major immune cell populations can be identified from the PBMC3K single-cell RNA-seq dataset based on their gene-expression profiles?
 
-##Dataset
+## Dataset
 
 Dataset: 10x Genomics PBMC3K
 Organism: Homo Sapians
@@ -26,7 +26,7 @@ Download source: 10x Genomics PBMC3K dataset
 
 The raw 10x matrix is intentionally not required in this GitHub repository. It can be downloaded from the original source using the shell script.
 
-##Tools and Technologies
+## Tools and Technologies
 
 Linux / Ubuntu
 R 
@@ -38,7 +38,7 @@ PCA
 UMAP
 Marker-gene analysis
 
-##Analysis Workflow
+## Analysis Workflow
 
 10x Genomics expression matrix
            ↓
@@ -70,7 +70,7 @@ Marker-gene analysis
            ↓
    Biological Interpritation
 
-##Result
+## Result
 
 After quality-control filtering, 2640 cells remained from the original PBMC3K dataset of approximately 2700 cells and 13714 genes remained from aproximately 32738.
 PCA-based dimensionality reduction followed by graph-based clustering identified 9 transcriptionally distinct cell clusters.
@@ -88,13 +88,13 @@ Cluster 6	NK cells
 Cluster 7	Dendritic cells
 Cluster 8	Platelets
 
-##Conclusion
+## Conclusion
 
 This project demonstrates a complete scRNA-seq analysis workflow from a raw 10x Genomics expression matrix to biologically interpretable cell populations.
 The analysis demonstrates practical skills in:
 Single-cell RNA-seq preprocessing through Quality control, Normalization, Dimensionality reduction, Clustering, Marker gene analysis, Cell-type annotation, Biological interpretation, Reproducible computational analysis
 
-##Major Cell-Type Markers
+## Major Cell-Type Markers
 
 T cells: CD3D, CD3E
 B cells: MS4A1, CD79A, CD79B, CD37
@@ -103,7 +103,7 @@ Monocytes: LYZ, LST1, TYROBP, AIF1, FCN1, S100A8, S100A9
 Dendritic cells: FCER1A, CST3, CD74, HLA-DRA, HLA-DPA1, HLA-DPB1
 Platelet/Megakaryocyte-like cells: PF4, PPBP, RGS18, SDPR
 
-##Visualization and Interpretation
+## Visualization and Interpretation
 
 **QC Violin Plot:** Shows the distribution of genes detected per cell, total RNA counts per cell, and mitochondrial RNA percentage.
 
@@ -118,7 +118,7 @@ Platelet/Megakaryocyte-like cells: PF4, PPBP, RGS18, SDPR
 **FeaturePlot:** Shows where specific marker genes are expressed on the UMAP.
 
 
-##Author
+## Author
 
 Sheetal
 
