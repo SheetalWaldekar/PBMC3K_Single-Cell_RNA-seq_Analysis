@@ -72,10 +72,10 @@ Marker-gene analysis
 
 ## Result
 
-After quality-control filtering, 2640 cells remained from the original PBMC3K dataset of approximately 2700 cells and 13714 genes remained from aproximately 32738.
-PCA-based dimensionality reduction followed by graph-based clustering identified 9 transcriptionally distinct cell clusters.
-The clusters contained 684, 481, 476, 344, 291, 162, 155, 32, and 13 cells, respectively.
-Cell-type annotation identified nine distinct populations: naive CD4 T cells, memory CD4 T cells, CD8 T cells, CD14+ classical monocytes, FCGR3A+ monocytes, B cells, NK cells, dendritic cells, and platelets. These populations represent major lymphoid, myeloid, antigen-presenting, and platelet lineages present in peripheral blood.
+- After quality-control filtering, 2640 cells remained from the original PBMC3K dataset of approximately 2700 cells and 13714 genes remained from aproximately 32738.
+- PCA-based dimensionality reduction followed by graph-based clustering identified 9 transcriptionally distinct cell clusters.
+- The clusters contained 684, 481, 476, 344, 291, 162, 155, 32, and 13 cells, respectively.
+- Cell-type annotation identified nine distinct populations: naive CD4 T cells, memory CD4 T cells, CD8 T cells, CD14+ classical monocytes, FCGR3A+ monocytes, B cells, NK cells, dendritic cells, and platelets. These populations represent major lymphoid, myeloid, antigen-presenting, and platelet lineages present in peripheral blood.
 
 Cluster	Cell type:
 Cluster 0         Naive CD4 T
@@ -90,8 +90,8 @@ Cluster 8	Platelets
 
 ## Conclusion
 
-This project demonstrates a complete scRNA-seq analysis workflow from a raw 10x Genomics expression matrix to biologically interpretable cell populations.
-The analysis demonstrates practical skills in:
+- This project demonstrates a complete scRNA-seq analysis workflow from a raw 10x Genomics expression matrix to biologically interpretable cell populations.
+- The analysis demonstrates practical skills in:
 Single-cell RNA-seq preprocessing through Quality control, Normalization, Dimensionality reduction, Clustering, Marker gene analysis, Cell-type annotation, Biological interpretation, Reproducible computational analysis
 
 ## Major Cell-Type Markers
@@ -105,24 +105,24 @@ Platelet/Megakaryocyte-like cells: PF4, PPBP, RGS18, SDPR
 
 ## Visualization and Interpretation
 
-**QC Violin Plot:** Shows the distribution of genes detected per cell, total RNA counts per cell, and mitochondrial RNA percentage.
-**PCA Plot:** Shows the major sources of transcriptional variation captured by principal components.
-**Elbow Plot:** Helps determine the number of principal components used for downstream analysis.
-**UMAP Cluster Plot:** Displays computationally identified cell populations. Each point represents a cell.
-**Marker DotPlot:** Compares marker-gene expression across clusters. Dot size represents the percentage of cells expressing the gene, while dot intensity represents average expression.
-**FeaturePlot:** Shows where specific marker genes are expressed on the UMAP.
+- **QC Violin Plot:** Shows the distribution of genes detected per cell, total RNA counts per cell, and mitochondrial RNA percentage.
+- **PCA Plot:** Shows the major sources of transcriptional variation captured by principal components.
+- **Elbow Plot:** Helps determine the number of principal components used for downstream analysis.
+- **UMAP Cluster Plot:** Displays computationally identified cell populations. Each point represents a cell.
+- **Marker DotPlot:** Compares marker-gene expression across clusters. Dot size represents the percentage of cells expressing the gene, while dot intensity represents average expression.
+- **FeaturePlot:** Shows where specific marker genes are expressed on the UMAP.
 
 ## Figures
 
-**01_QC_violin.png**: Distribution of genes, counts and mitochondrial percentage
-**02_QC_scatter.png:** Relationships between QC metrics
-**03_variable_features.png:** Highly variable genes
-**04_PCA.png:** Principal component representation
-**05_ElbowPlot.png:** Evaluation of principal components
-**06_UMAP.png:** UMAP colored by computational clusters
-**07_marker_DotPlot.png:** Canonical marker expression across clusters
-**08_FeaturePlot.png:** Marker-gene expression on UMAP
-**09_Final_annotated_UMAP.png:** Final biological cell-type annotation
+- **01_QC_violin.png**: Distribution of genes, counts and mitochondrial percentage
+- **02_QC_scatter.png:** Relationships between QC metrics
+-**03_variable_features.png:** Highly variable genes
+- **04_PCA.png:** Principal component representation
+- **05_ElbowPlot.png:** Evaluation of principal components
+- **06_UMAP.png:** UMAP colored by computational clusters
+- **07_marker_DotPlot.png:** Canonical marker expression across clusters
+- **08_FeaturePlot.png:** Marker-gene expression on UMAP
+- **09_Final_annotated_UMAP.png:** Final biological cell-type annotation
 
 ## Author
 
