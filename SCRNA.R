@@ -4,31 +4,20 @@ library(Seurat)
 library(ggplot2)
 library(dplyr)
 library(patchwork)
-packageVersion("Seurat")
-packageVersion("ggplot2")
-packageVersion("dplyr")
-packageVersion("patchwork")
 
 ## Load data
 pbmc3k_data <- Read10X(
   data.dir= "//wsl.localhost/Ubuntu-24.04/home/shital/my_project/scrna_project/filtered_gene_bc_matrices/hg19"
 )
-list.files("//wsl.localhost/Ubuntu-24.04/home/shital/my_project/scrna_project/filtered_gene_bc_matrices/hg19")
 dim (pbmc3k_data)
 
 ## create seurat Object
-pbmc <- CreateSeuratObject(counts = pbmc3k_data,
-                           project = 'PBMC3K',
-                           min.cells = 3,
-                           min.features = 200)
+pbmc <- CreateSeuratObject(counts = pbmc3k_data, project = 'PBMC3K', min.cells = 3, min.features = 200)
 pbmc
-ncol(pbmc)
-nrow(pbmc)
 
 # QC
 # mitochondrial % calculate
 pbmc[['mt_percent']] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
-View(pbmc@meta.data)
 
 #Visualize QC Matrix
 VlnPlot(pbmc, features = c('nCount_RNA', 'nFeature_RNA', 'mt_percent' ))
@@ -41,34 +30,18 @@ plot2<- FeatureScatter(pbmc, feature1='nCount_RNA', feature2='nFeature_RNA')
 plot1 + plot2
 
 # Filter Low quality cells
-pbmc <- subset(pbmc,
-               subset= nFeature_RNA > 200 &
-                 nFeature_RNA < 2500 &
-                 mt_percent < 5)
+pbmc <- subset(pbmc, subset= nFeature_RNA > 200 & nFeature_RNA < 2500 & mt_percent < 5)
 pbmc
 
 #Normalization and feature selection
-pbmc <- NormalizeData(pbmc,
-                      normalization.method = "LogNormalize",
-                      scale.factor = 10000
-)
+pbmc <- NormalizeData(pbmc)
 pbmc
 
 # find highly variable genes
-pbmc <- FindVariableFeatures(
-  pbmc,
-  selection.method = 'vst',
-  nfeatures = 2000
-)
-top10 <- head(VariableFeatures(pbmc), 10)
-
+pbmc <- FindVariableFeatures(pbmc, selection.method = 'vst', nfeatures = 2000)
 plot1 <- VariableFeaturePlot(pbmc)
-
-plot2 <- LabelPoints(
-  plot = plot1,
-  points = top10,
-  repel = TRUE
-)
+plot1
+plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
 plot2
 
 # Scale Data (prepare Data for PCA plot)
@@ -108,12 +81,7 @@ pbmc <- RunUMAP(pbmc, dims = 1:10)
 DimPlot(pbmc, reduction = 'umap', label=TRUE)
 
 # Find markers for every cluster vs all others
-pbmc_markers <- FindAllMarkers(
-  pbmc,
-  only.pos = TRUE,
-  min.pct = 0.25,
-  logfc.threshold = 0.25
-)
+pbmc_markers <- FindAllMarkers(pbmc, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
 View(pbmc_markers)
 
 # Top markers per cluster
@@ -129,37 +97,15 @@ top10
 DoHeatmap(pbmc, features=top10$gene) + NoLegend()
 
 # DotPlot Visualize marker genes 
-markers_to_plot <- c(
-  "CD3D",
-  "CD3E",
-  "MS4A1",
-  "CD79A",
-  "NKG7",
-  "GNLY",
-  "LYZ",
-  "LST1",
-  "FCER1A",
-  "CST3",
-  "PF4",
-  "PPBP"
-)
+markers_to_plot <- c("CD3D", "CD3E", "MS4A1", "CD79A", "NKG7", "GNLY", "LYZ", "LST1", "FCER1A", "CST3", "PF4", "PPBP")
 
-DotPlot(
-  pbmc,
-  features = markers_to_plot
-) +
-  RotatedAxis()
+DotPlot(pbmc, features = markers_to_plot) + RotatedAxis()
 
 # Visualize known markers
-FeaturePlot(pbmc,
-            features=c('CD3D','CD4','CD8A','MS4A1',
-                       'GNLY','CD14','LYZ','FCGR3A'),
-            ncol=3)
+FeaturePlot(pbmc, features=c('CD3D','CD4','CD8A','MS4A1', 'GNLY','CD14','LYZ','FCGR3A'), ncol=3)
 
 # Assign cell type labels (adjust cluster numbers to match yours)
-new_cluster_ids <- c('Naive CD4 T', 'CD14+ Mono', 'Memory CD4 T',
-                     'B', 'CD8 T', 'FCGR3A+ Mono', 'NK',
-                     'DC', 'Platelet')
+new_cluster_ids <- c('Naive CD4 T', 'CD14+ Mono', 'Memory CD4 T', 'B', 'CD8 T', 'FCGR3A+ Mono', 'NK', 'DC', 'Platelet')
 new_cluster_ids
 names(new_cluster_ids) <- levels(pbmc)
 pbmc <- RenameIdents(pbmc, new_cluster_ids)
@@ -168,10 +114,7 @@ pbmc <- RenameIdents(pbmc, new_cluster_ids)
 DimPlot(pbmc, reduction='umap', label=TRUE, pt.size=0.5) + NoLegend()
 
 #Compare CD14 Monocytes vs CD16 Monocytes
-mono.markers <- FindMarkers(pbmc,
-                            ident.1='CD14+ Mono',
-                            ident.2='FCGR3A+ Mono',
-                            min.pct=0.25)
+mono.markers <- FindMarkers(pbmc, ident.1='CD14+ Mono', ident.2='FCGR3A+ Mono', min.pct=0.25)
 head(mono.markers, 10) 
 
 saveRDS(pbmc, file='pbmc3k_analyzed.rds')
